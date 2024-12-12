@@ -1,0 +1,525 @@
+/* General Reset and Font Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cambria', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #E3F2FD, #8156cf);
+  color: #333333;
+  overflow-x: hidden;
+}
+
+/* Base Navbar Style */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 15px;
+}
+
+.navbar .logo img {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Links Style */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* Allows the nav-links to take available space */
+  justify-content: center; /* Centers the links horizontally */
+}
+
+.nav-links li {
+  position: relative;
+  margin: 0 8px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 12px;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #00d084;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow Icon for Dropdown */
+.arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu Style */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 21px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px; /* More rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  padding: 0;
+  margin-top: 4px;
+  min-width: 10px; /* Reduced width */
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px; /* Adjust padding for a more appealing look */
+  display: block;
+  white-space: nowrap; /* Prevent text wrapping */
+  border-radius: 8px; /* More rounded corners */
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+.dropdown-content li a:hover {
+  background: rgba(0, 255, 136, 0.3);
+  color: #fff;
+}
+
+/* Sub Dropdown Menu Style */
+.sub-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px; /* More rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  padding: 0;
+  margin-top: 0;
+  min-width: 140px; /* Reduced width */
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sub-dropdown-content li {
+  list-style: none;
+}
+
+.sub-dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px; /* Adjust padding for a more appealing look */
+  display: block;
+  white-space: nowrap; /* Prevent text wrapping */
+  border-radius: 8px; /* More rounded corners */
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+.sub-dropdown-content li a:hover {
+  background: rgba(0, 255, 136, 0.3);
+  color: #fff;
+}
+
+/* Advanced Transition Effects */
+.dropdown-content li a,
+.sub-dropdown-content li a {
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-content li a::before,
+.sub-dropdown-content li a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.dropdown-content li a:hover::before,
+.sub-dropdown-content li a:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    justify-content: center; /* Centers links vertically in mobile view */
+  }
+
+  .navbar.active .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links a {
+    padding: 8px 16px;
+  }
+}
+
+/* Certification Section */
+.certification-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  background: linear-gradient(to right, #ffffff, #ffffff);
+  color: #333333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 1000px;
+  margin: auto;
+  align-items: flex-start;
+}
+
+/* Image Row */
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.image-content {
+  flex: 1;
+  max-width: 48%;
+}
+
+.image-content img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Shadow for image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-content img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+}
+
+/* Text Content Box */
+.box {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid rgb(45, 6, 107); /* Thin black border */
+  /* Intense shadow for text box */
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Title Styling */
+.text-content h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #5A82E3, #BB86FC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Paragraph and Description */
+.text-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.text-content p strong {
+  font-weight: bold;
+  color: #333333;
+}
+
+/* List Styling */
+ul {
+  list-style: none;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+ul li {
+  font-size: 0.95rem;
+  margin: 8px 0;
+  position: relative;
+  padding-left: 22px;
+}
+
+/* Custom Bullet Points */
+ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #5A82E3;
+  font-size: 1.1rem;
+}
+
+/* List Hover Effect */
+ul li:hover {
+  color: #BB86FC;
+  transform: translateX(5px);
+}
+
+/* Benefits Title */
+.text-content p:last-of-type {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+/* Footer Main Container */
+.footer {
+  background: linear-gradient(145deg, #0a0e23, #09121b, #002f68); /* Darker blue and deep shades */
+  padding: 20px 70px; /* Increased padding to lower the content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #d4d4d4;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dynamic Light Glow Effect */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 102, 204, 0.15);
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: pulse 6s infinite ease-in-out;
+}
+
+/* Footer Content Layout */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px; /* Slightly larger gap for more spacing */
+  padding-bottom: 10px;
+  padding-right: -200px; /* Shift content slightly to the right */
+}
+
+/* Footer Left Section */
+.footer-left {
+  flex: 1;
+  min-width: 220px;
+  padding-right: 100px; /* Push text towards the right */
+  margin-top: 10px; /* Bring the content slightly lower */
+}
+
+.footer-logo {
+  width: 130px;
+  margin-bottom: 15px;
+}
+
+.footer-left p {
+  line-height: 1.6;
+  margin: 15px 0;
+  color: #b3c4d3;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #4da6ff;
+  font-size: 20px;
+  margin-right: 14px;
+  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #b3c4d3;
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* Footer Middle Section */
+.footer-middle {
+  flex: 1;
+  min-width: 220px;
+  margin-top: 20px; /* Lower the middle section slightly */
+  padding-right: 30px; /* Shift the content to the right */
+}
+
+.footer-middle h4 {
+  color: #ffffff;
+  margin-bottom: 14px;
+  font-size: 17px;
+}
+
+.footer-middle p {
+  line-height: 1.6;
+  font-size: 14px;
+  color: #d4d4d4;
+  transition: color 0.3s ease;
+}
+
+/* Footer Right Section */
+.footer-right {
+  flex: 1;
+  min-width: 220px;
+  margin-top: 20px; /* Lower the right section slightly */
+  padding-right: 20px; /* Shift the content to the right */
+}
+
+.footer-right h4 {
+  color: #ffffff;
+  margin-bottom: 14px;
+  font-size: 17px;
+}
+
+.footer-right p {
+  line-height: 1.6;
+  font-size: 14px;
+  color: #d4d4d4;
+  transition: color 0.3s ease;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: #757575;
+  animation: fadeIn 2s ease-in-out;
+  padding-right: 30px; /* Align the bottom content towards the right */
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Keyframes for Dynamic Glow and Fade Effects */
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+  }
+}

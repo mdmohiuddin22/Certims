@@ -1,0 +1,577 @@
+/* General Styles */
+body {
+    font-family: 'Cambria', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #b8f4ff, #b9bdfc); /* Light gradient background */
+    color: #333; /* Dark text color */
+    overflow-x: hidden;
+}
+
+/* Base Navbar Style */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent; /* Make the navbar fully transparent */
+    padding: 20px 20px; /* Reduce padding for a more compact look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none; /* Remove box-shadow for transparency */
+    z-index: 100;
+    transition: background-color 0.5s ease, padding 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+/* Navbar Style When Scrolled */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.5); /* Background color when scrolled */
+    backdrop-filter: blur(2px); /* Blur effect when scrolled */
+    padding: 20px 15px; /* Adjust padding if needed */
+}
+
+
+/* Rest of the existing CSS remains the same */
+
+.navbar .logo {
+    position: absolute;
+    left: 20px; /* Adjust logo positioning */
+    display: flex;
+    align-items: center;
+    top: 5px;
+}
+
+.navbar .logo img {
+    height: 70px; /* Adjust logo size for compact look */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.1);
+    opacity: 0.8; /* Adjust as needed */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reduce gap between links */
+    list-style-type: none; /* Remove dots before links */
+    margin: 0;
+    padding: 0;
+}
+
+/* Arrow Icon for Dropdown */
+.arrow {
+    margin-left: 5px; /* Adjust margin for compact look */
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg); /* Rotate arrow on hover */
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the parent link */
+    left: 0;
+    background: rgba(255, 255, 255, 0.1); /* Lighter transparent background */
+    backdrop-filter: blur(10px); /* Slightly weaker blur for compact look */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 8px 0; /* Reduced padding */
+    margin-top: 5px; /* Reduced margin */
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    min-width: 160px; /* Adjusted width */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Smooth slide into view */
+}
+
+.dropdown-content li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 8px 16px; /* Reduced padding */
+    color: #000000; /* Light text for dropdown items */
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.dropdown-content li a:hover {
+    background: rgba(0, 255, 234, 0.3); /* Transparent highlight background */
+    color: #333333; /* Slightly darker text on highlight */
+}
+
+/* Sub Dropdown Menu */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 0; /* Position directly below the parent link */
+    left: 100%; /* Position to the right of the parent link */
+    background: rgba(255, 255, 255, 0.1); /* Lighter transparent background */
+    backdrop-filter: blur(10px); /* Slightly weaker blur for compact look */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 8px 0; /* Reduced padding */
+    margin-top: 0;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    min-width: 200px; /* Adjusted width */
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Smooth slide into view */
+}
+
+.sub-dropdown-content li a {
+    display: block;
+    padding: 8px 16px; /* Reduced padding */
+    color: #000000; /* Light text for dropdown items */
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.sub-dropdown-content li a:hover {
+    background: rgba(0, 255, 234, 0.3); /* Transparent highlight background */
+    color: #333333; /* Slightly darker text on highlight */
+}
+
+/* Advanced Transition Effects */
+.dropdown-content li a, .sub-dropdown-content li a {
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown-content li a::before, .sub-dropdown-content li a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.dropdown-content li a:hover::before, .sub-dropdown-content li a:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Ripple effect on hover */
+}
+
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 15px; /* Adjust font size for compact look */
+    font-weight: 500;
+    padding: 6px 12px; /* Reduce padding */
+    border-radius: 6px; /* Adjust border radius */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Position the line just below the link */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.4s ease;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+.navbar a:hover::after {
+    width: 100%; /* Expand the line to full width on hover */
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Adjust position */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent background for mobile */
+        padding: 10px;
+        border-radius: 8px; /* Adjust border radius */
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Softer shadow */
+        display: none;
+        z-index: 99;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .nav-links a {
+        margin: 6px 0; /* Reduced margin */
+    }
+
+    .navbar.active .nav-links {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Project Management Section */
+.project-management {
+    background-color: #fff;
+    padding: 50px 20px;
+}
+
+.project-management .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project-management h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px; /* Reduced margin to make space for underline */
+    color: #5A82E3;
+    position: relative; /* Set position for the pseudo-element */
+}
+
+.project-management h1::after {
+    content: '';
+    display: block;
+    width: 60px; /* Set width of underline */
+    height: 4px; /* Set thickness of underline */
+    background: linear-gradient(90deg, #5A82E3, #BB86FC); /* Gradient color */
+    margin: 10px auto; /* Center the underline */
+}
+
+.project-management p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: justify; /* Adjust text alignment */
+}
+
+@media (max-width: 768px) {
+    .project-management h1 {
+        font-size: 2rem;
+    }
+
+    .project-management p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    background:     linear-gradient(to right, rgba(70, 168, 255, 0.555), rgba(255, 255, 255, 0.5)),     url('project2.jpg');background-size: cover;background-position: center;
+    height: 50vh; /* Full viewport height to center content */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    color: #004080; /* Darker blue for text contrast */
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    padding: 0 20px; /* Remove padding for consistent centering */
+}
+
+.hero-content h1 {
+    font-size: 36px; /* Smaller heading for a clean, modern look */
+    font-weight: 700;
+    color: #2d3135;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px; /* Reduced size for paragraph */
+    font-weight: 400;
+    color: #161718; /* Softer blue for a harmonious design */
+    margin-bottom: 25px;
+}
+
+.hero-section .hero-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #0066cc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section .hero-button:hover {
+    background-color: #004080;
+    color: #ffffff;
+}
+
+
+
+/* Project Management Section */
+.project-management-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #65e0ff, #6f7eff); /* Gradient background from purple to blue */
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    color: #000000; /* White text for better contrast */
+}
+
+/* Heading Style */
+.project-management-section h1 {
+    font-size: 2.5rem;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #00c6ff; /* Blue accent */
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.project-management-section h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background: #ffffff; /* Blue accent */
+    border-radius: 2px;
+    transform: translateX(-50%);
+}
+
+/* Project Category */
+.project-category {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(10px); /* Adds a blur effect for a more sophisticated look */
+}
+
+.project-category:hover {
+    transform: translateY(-8px); /* Enhanced lift effect */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.project-category h2 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00c6ff; /* Blue accent */
+    padding-bottom: 12px;
+}
+
+.project-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.project-category ul li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2); /* Light blue background */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project-category ul li:hover {
+    background: rgba(0, 150, 255, 0.3);
+    color: #000000;
+    cursor: pointer;
+}
+
+/* Footer Main Container */
+.footer {
+    background: linear-gradient(145deg, #0a0e23, #09121b, #002f68); /* Darker blue and deep shades */
+    padding: 20px 70px; /* Increased padding to lower the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #d4d4d4;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Dynamic Light Glow Effect */
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 102, 204, 0.15);
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: pulse 6s infinite ease-in-out;
+  }
+  
+  /* Footer Content Layout */
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px; /* Slightly larger gap for more spacing */
+    padding-bottom: 10px;
+    padding-right: -200px; /* Shift content slightly to the right */
+  }
+  
+  /* Footer Left Section */
+  .footer-left {
+    flex: 1;
+    min-width: 220px;
+    padding-right: 100px; /* Push text towards the right */
+    margin-top: 10px; /* Bring the content slightly lower */
+  }
+  
+  .footer-logo {
+    width: 130px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-left p {
+    line-height: 1.6;
+    margin: 15px 0;
+    color: #b3c4d3;
+    text-align: justify;
+    word-spacing: -1px; /* Adjust this value to control the space between words */
+}
+
+
+  
+  /* Social Icons */
+  .social-icons {
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    color: #4da6ff;
+    font-size: 20px;
+    margin-right: 14px;
+    transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #b3c4d3;
+    transform: scale(1.2);
+    filter: brightness(1.2);
+  }
+  
+  /* Footer Middle Section */
+  .footer-middle {
+    flex: 1;
+    min-width: 220px;
+    margin-top: 20px; /* Lower the middle section slightly */
+    padding-right: 30px; /* Shift the content to the right */
+  }
+  
+  .footer-middle h4 {
+    color: #ffffff;
+    margin-bottom: 14px;
+    font-size: 17px;
+  }
+  
+  .footer-middle p {
+    line-height: 1.6;
+    font-size: 14px;
+    color: #d4d4d4;
+    transition: color 0.3s ease;
+  }
+  
+  /* Footer Right Section */
+  .footer-right {
+    flex: 1;
+    min-width: 220px;
+    margin-top: 20px; /* Lower the right section slightly */
+    padding-right: 20px; /* Shift the content to the right */
+  }
+  
+  .footer-right h4 {
+    color: #ffffff;
+    margin-bottom: 14px;
+    font-size: 17px;
+  }
+  
+  .footer-right p {
+    line-height: 1.1;
+    font-size: 14px;
+    color: #d4d4d4;
+    transition: color 0.3s ease;
+  }
+  
+  /* Footer Bottom Section */
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    color: #757575;
+    animation: fadeIn 2s ease-in-out;
+    padding-right: 30px; /* Align the bottom content towards the right */
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-management-section {
+        padding: 40px 5%;
+    }
+    .project-category {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-management-section {
+        padding: 30px 2%;
+    }
+    .project-category {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+}
