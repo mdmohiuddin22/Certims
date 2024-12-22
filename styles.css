@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    font-family: 'Cambria', sans-serif;
+    font-family: "Cambria", sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
@@ -39,16 +39,21 @@ body {
     align-items: center;
     box-shadow: none; /* Remove box-shadow for transparency */
     z-index: 100;
-    transition: background-color 0.5s ease, padding 0.5s ease, backdrop-filter 0.5s ease;
+    transition: background-color 0.5s ease, padding 0.5s ease,
+        backdrop-filter 0.5s ease;
 }
 
 /* Navbar Style When Scrolled */
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.5); /* Background color when scrolled */
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.5
+    ); /* Background color when scrolled */
     backdrop-filter: blur(2px); /* Blur effect when scrolled */
     padding: 20px 15px; /* Adjust padding if needed */
 }
-
 
 /* Rest of the existing CSS remains the same */
 
@@ -111,6 +116,7 @@ body {
     transform: translateY(10px);
     transition: opacity 0.4s ease, transform 0.4s ease;
     min-width: 160px; /* Adjusted width */
+    z-index: 99999;
 }
 
 .dropdown:hover .dropdown-content {
@@ -183,13 +189,15 @@ body {
 }
 
 /* Advanced Transition Effects */
-.dropdown-content li a, .sub-dropdown-content li a {
+.dropdown-content li a,
+.sub-dropdown-content li a {
     position: relative;
     overflow: hidden;
 }
 
-.dropdown-content li a::before, .sub-dropdown-content li a::before {
-    content: '';
+.dropdown-content li a::before,
+.sub-dropdown-content li a::before {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -202,7 +210,8 @@ body {
     z-index: 0;
 }
 
-.dropdown-content li a:hover::before, .sub-dropdown-content li a:hover::before {
+.dropdown-content li a:hover::before,
+.sub-dropdown-content li a:hover::before {
     transform: translate(-50%, -50%) scale(1); /* Ripple effect on hover */
 }
 
@@ -219,7 +228,7 @@ body {
 }
 
 .navbar a::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px; /* Position the line just below the link */
     left: 0;
@@ -245,7 +254,12 @@ body {
         top: 50px; /* Adjust position */
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba(255, 255, 255, 0.1); /* Transparent background for mobile */
+        background-color: rgba(
+            255,
+            255,
+            255,
+            0.1
+        ); /* Transparent background for mobile */
         padding: 10px;
         border-radius: 8px; /* Adjust border radius */
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Softer shadow */
@@ -265,7 +279,6 @@ body {
     }
 }
 
-
 /* Hero Section */
 #hero {
     position: relative;
@@ -274,7 +287,7 @@ body {
     align-items: center; /* Centers content vertically */
     padding: 60px 20px; /* Adjusted padding */
     min-height: 82vh; /* Reduced height */
-    background: url('bg.jpg') center center/cover no-repeat; /* Replace with your image path */
+    background: url("bg.jpg") center center/cover no-repeat; /* Replace with your image path */
 }
 
 /* Hero Overlay for gradient effect */
@@ -284,7 +297,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.35), rgba(120, 129, 253, 0.35)); /* Increased transparency for better image visibility */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.35),
+        rgba(120, 129, 253, 0.35)
+    ); /* Increased transparency for better image visibility */
     z-index: 1;
 }
 
@@ -324,7 +341,11 @@ body {
 
 /* Hero Button */
 .hero-btn {
-    background: linear-gradient(135deg, #4a90e2, #8e44ad); /* Blue to purple gradient */
+    background: linear-gradient(
+        135deg,
+        #4a90e2,
+        #8e44ad
+    ); /* Blue to purple gradient */
     color: white;
     padding: 12px 24px;
     border-radius: 8px;
@@ -335,17 +356,27 @@ body {
 }
 
 .hero-btn:hover {
-    background: linear-gradient(135deg, #8e44ad, #4a90e2); /* Inverted gradient on hover */
+    background: linear-gradient(
+        135deg,
+        #8e44ad,
+        #4a90e2
+    ); /* Inverted gradient on hover */
     transform: scale(1.05);
 }
 /* Typewriter Effect */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100.5%; } /* Ensure it reaches the full width */
+    from {
+        width: 0;
+    }
+    to {
+        width: 100.5%;
+    } /* Ensure it reaches the full width */
 }
 
 @keyframes blink {
-    50% { opacity: 0; } /* Change border-color to opacity for better visibility */
+    50% {
+        opacity: 0;
+    } /* Change border-color to opacity for better visibility */
 }
 
 /* Hero Heading */
@@ -364,7 +395,7 @@ body {
 
 /* Create the blinking cursor */
 .hero-company-name::after {
-    content: ''; /* Empty content */
+    content: ""; /* Empty content */
     position: absolute;
     right: 0; /* Position the cursor at the end of the text */
     top: 0;
@@ -377,7 +408,7 @@ body {
 @media (max-width: 768px) {
     #hero {
         padding: 50px 20px;
-        background: url('bg.jpg') center center/cover no-repeat; /* Make sure the mobile version also shows the image properly */
+        background: url("bg.jpg") center center/cover no-repeat; /* Make sure the mobile version also shows the image properly */
     }
 
     .hero-content {
@@ -392,10 +423,14 @@ body {
     .hero-btn {
         margin: 0 auto;
     }
-}   
+}
 /* Services Section */
 .services {
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Subtle gradient background */
+    background: linear-gradient(
+        135deg,
+        #f5f7fa,
+        #c3cfe2
+    ); /* Subtle gradient background */
     padding: 100px 15px; /* Reduced padding */
     display: flex;
     align-items: center;
@@ -425,7 +460,11 @@ body {
 
 .services-header h2 span {
     color: #ff6fcf;
-    background: -webkit-linear-gradient(45deg, #1279ff, #ff42b7); /* Gradient text */
+    background: -webkit-linear-gradient(
+        45deg,
+        #1279ff,
+        #ff42b7
+    ); /* Gradient text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -433,7 +472,10 @@ body {
 .service-cards {
     flex: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid layout */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    ); /* Flexible grid layout */
     height: 500px;
     gap: 15px; /* Reduced gap */
     position: relative;
@@ -458,13 +500,17 @@ body {
 }
 
 .service-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(255, 133, 111, 0.2), rgba(44, 44, 84, 0.2));
+    background: linear-gradient(
+        45deg,
+        rgba(255, 133, 111, 0.2),
+        rgba(44, 44, 84, 0.2)
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -473,13 +519,16 @@ body {
 
 .service-card i {
     font-size: 2.4rem; /* Reduced icon size */
-    background: linear-gradient(45deg, #3498db, #8e44ad); /* Gradient of blue and purple */
+    background: linear-gradient(
+        45deg,
+        #3498db,
+        #8e44ad
+    ); /* Gradient of blue and purple */
     -webkit-background-clip: text; /* Clips the gradient to the text */
     -webkit-text-fill-color: transparent; /* Makes the text fill transparent to show the gradient */
     margin-bottom: 10px; /* Reduced margin */
     transition: background 0.3s ease;
 }
-
 
 .service-card h3 {
     font-size: 1rem; /* Reduced font size */
@@ -520,7 +569,10 @@ body {
     opacity: 1; /* Show the gradient overlay on hover */
 }
 
-.service-card:hover i, .service-card:hover h3, .service-card:hover p, .service-card:hover .service-label {
+.service-card:hover i,
+.service-card:hover h3,
+.service-card:hover p,
+.service-card:hover .service-label {
     color: #000000; /* Change color on hover */
 }
 
@@ -534,7 +586,11 @@ body {
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
-    background: linear-gradient(45deg, #3498db, #8e44ad); /* Gradient of blue and purple */
+    background: linear-gradient(
+        45deg,
+        #3498db,
+        #8e44ad
+    ); /* Gradient of blue and purple */
     border-radius: 25px;
     text-transform: uppercase;
     text-align: center;
@@ -544,7 +600,11 @@ body {
 }
 
 .learn-more-btn:hover {
-    background: linear-gradient(45deg, #8e44ad, #3498db); /* Reverse gradient on hover */
+    background: linear-gradient(
+        45deg,
+        #8e44ad,
+        #3498db
+    ); /* Reverse gradient on hover */
     transform: translateY(-3px); /* Slight lift effect */
 }
 
@@ -558,7 +618,10 @@ body {
     }
 
     .service-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid layout */
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        ); /* Adjust grid layout */
     }
 }
 
@@ -571,7 +634,6 @@ body {
         padding: 15px; /* Adjusted padding for mobile */
     }
 }
-
 
 /* Portfolio Section */
 .portfolio {
@@ -646,7 +708,11 @@ body {
     padding: 80px 0;
     max-width: 1400px;
     margin: 0 auto;
-    background: linear-gradient(to right, #ffffff,  #7881fd); /* Light gradient background */
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        #7881fd
+    ); /* Light gradient background */
 }
 
 .about-content {
@@ -658,7 +724,6 @@ body {
 
 .text-section {
     max-width: 600px;
-
 }
 
 .text-section h3 {
@@ -683,11 +748,14 @@ body {
     color: #666666;
     margin-bottom: 40px;
     text-align: justify;
-
 }
 
 .cta-button {
-    background: linear-gradient(135deg, #4a90e2, #8e44ad); /* Blue to purple gradient background */
+    background: linear-gradient(
+        135deg,
+        #4a90e2,
+        #8e44ad
+    ); /* Blue to purple gradient background */
     color: white;
     padding: 15px 30px;
     border-radius: 8px; /* Slightly increased border-radius */
@@ -698,10 +766,13 @@ body {
 }
 
 .cta-button:hover {
-    background: linear-gradient(135deg, #8e44ad, #4a90e2); /* Inverted blue to purple gradient on hover */
+    background: linear-gradient(
+        135deg,
+        #8e44ad,
+        #4a90e2
+    ); /* Inverted blue to purple gradient on hover */
     transform: scale(1.05); /* Slightly increased scale on hover */
 }
-
 
 .image-section {
     max-width: 360px; /* Reduced image size */
@@ -737,10 +808,12 @@ body {
 }
 .clients-section {
     padding: 60px 0;
-    background: linear-gradient(to right, #cbf5ff, #7881fd); /* Light gradient background */
+    background: linear-gradient(
+        to right,
+        #cbf5ff,
+        #7881fd
+    ); /* Light gradient background */
 }
-
-
 
 .clients-header {
     text-align: center;
@@ -751,7 +824,11 @@ body {
 .clients-header h2 {
     font-size: 36px;
     font-weight: bold;
-    background: linear-gradient(to right, #0518c0, #ff47e0); /* Blue to purple gradient from left to right */
+    background: linear-gradient(
+        to right,
+        #0518c0,
+        #ff47e0
+    ); /* Blue to purple gradient from left to right */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -761,10 +838,14 @@ body {
 }
 
 .clients-header h2::after {
-    content: '';
+    content: "";
     display: block;
     height: 4px; /* Adjust the thickness of the underline */
-    background: linear-gradient(to right, #0518c0, #ff47e0); /* Gradient matching the text */
+    background: linear-gradient(
+        to right,
+        #0518c0,
+        #ff47e0
+    ); /* Gradient matching the text */
     position: absolute;
     bottom: -5px; /* Position the underline slightly below the text */
     left: 0;
@@ -801,15 +882,19 @@ body {
 }
 
 @keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Adjust based on the duplicated content */
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    } /* Adjust based on the duplicated content */
 }
 
 @media (max-width: 768px) {
     .clients-wrapper {
         animation: none; /* Disables animation on smaller screens */
     }
-    
+
     .client-logo {
         margin-right: 20px; /* Reduces spacing between logos on small screens */
     }
@@ -921,10 +1006,9 @@ body {
 
 .get-in-touch ul li {
     margin-bottom: 12px; /* Reduced margin */
-    font-size:0.8rem; /* Reduced font size */
+    font-size: 0.8rem; /* Reduced font size */
     line-height: normal;
     width: 900px;
-
 }
 
 .get-in-touch ul li i {
@@ -1176,24 +1260,27 @@ body {
     }
 }
 
-
-
 /* Footer Main Container */
 .footer {
-    background: linear-gradient(145deg, #0a0e23, #09121b, #002f68); /* Darker blue and deep shades */
+    background: linear-gradient(
+        145deg,
+        #0a0e23,
+        #09121b,
+        #002f68
+    ); /* Darker blue and deep shades */
     padding: 20px 70px; /* Increased padding to lower the content */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: #d4d4d4;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     position: relative;
     overflow: hidden;
-  }
-  
-  /* Dynamic Light Glow Effect */
-  .footer::before {
-    content: '';
+}
+
+/* Dynamic Light Glow Effect */
+.footer::before {
+    content: "";
     position: absolute;
     top: -50px;
     right: -50px;
@@ -1203,32 +1290,32 @@ body {
     border-radius: 50%;
     filter: blur(50px);
     animation: pulse 6s infinite ease-in-out;
-  }
-  
-  /* Footer Content Layout */
-  .footer-content {
+}
+
+/* Footer Content Layout */
+.footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 30px; /* Slightly larger gap for more spacing */
     padding-bottom: 10px;
     padding-right: -200px; /* Shift content slightly to the right */
-  }
-  
-  /* Footer Left Section */
-  .footer-left {
+}
+
+/* Footer Left Section */
+.footer-left {
     flex: 1;
     min-width: 220px;
     padding-right: 100px; /* Push text towards the right */
     margin-top: 10px; /* Bring the content slightly lower */
-  }
-  
-  .footer-logo {
+}
+
+.footer-logo {
     width: 130px;
     margin-bottom: 15px;
-  }
-  
-  .footer-left p {
+}
+
+.footer-left p {
     line-height: 1.6;
     margin: 15px 0;
     color: #b3c4d3;
@@ -1236,70 +1323,68 @@ body {
     word-spacing: -1px; /* Adjust this value to control the space between words */
 }
 
-
-  
-  /* Social Icons */
-  .social-icons {
+/* Social Icons */
+.social-icons {
     margin-top: 10px;
-  }
-  
-  .social-icons a {
+}
+
+.social-icons a {
     color: #4da6ff;
     font-size: 20px;
     margin-right: 14px;
     transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-  }
-  
-  .social-icons a:hover {
+}
+
+.social-icons a:hover {
     color: #b3c4d3;
     transform: scale(1.2);
     filter: brightness(1.2);
-  }
-  
-  /* Footer Middle Section */
-  .footer-middle {
+}
+
+/* Footer Middle Section */
+.footer-middle {
     flex: 1;
     min-width: 220px;
     margin-top: 20px; /* Lower the middle section slightly */
     padding-right: 30px; /* Shift the content to the right */
-  }
-  
-  .footer-middle h4 {
+}
+
+.footer-middle h4 {
     color: #ffffff;
     margin-bottom: 14px;
     font-size: 17px;
-  }
-  
-  .footer-middle p {
+}
+
+.footer-middle p {
     line-height: 1.6;
     font-size: 14px;
     color: #d4d4d4;
     transition: color 0.3s ease;
-  }
-  
-  /* Footer Right Section */
-  .footer-right {
+}
+
+/* Footer Right Section */
+.footer-right {
     flex: 1;
     min-width: 220px;
     margin-top: 20px; /* Lower the right section slightly */
     padding-right: 20px; /* Shift the content to the right */
-  }
-  
-  .footer-right h4 {
+}
+
+.footer-right h4 {
     color: #ffffff;
     margin-bottom: 14px;
     font-size: 17px;
-  }
-  
-  .footer-right p {
+}
+
+.footer-right p {
     line-height: 1.1;
     font-size: 14px;
     color: #d4d4d4;
     transition: color 0.3s ease;
-  }
-  
-  /* Footer Bottom Section */
-  .footer-bottom {
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
     display: flex;
     justify-content: space-between;
     padding-top: 25px;
@@ -1308,53 +1393,52 @@ body {
     color: #757575;
     animation: fadeIn 2s ease-in-out;
     padding-right: 30px; /* Align the bottom content towards the right */
-  }
-  
-  .footer-bottom p {
+}
+
+.footer-bottom p {
     margin: 0;
-  }
-  
+}
 
-    /* Media Queries */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 36px;
-        }
-
-        .service-cards {
-            grid-template-columns: 1fr;
-        }
-
-        .portfolio-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .about-content {
-            flex-direction: column;
-        }
-
-        .testimonial-slider {
-            flex-direction: column;
-        }
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
     }
 
-    @media (max-width: 480px) {
-        .hero h1 {
-            font-size: 28px;
-        }
-
-        .hero p {
-            font-size: 16px;
-        }
-
-        .services h2,
-        .portfolio h2,
-        .about h2,
-        .testimonials h2,
-        .contact h2 {
-            font-size: 28px;
-        }
+    .service-cards {
+        grid-template-columns: 1fr;
     }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .testimonial-slider {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .services h2,
+    .portfolio h2,
+    .about h2,
+    .testimonials h2,
+    .contact h2 {
+        font-size: 28px;
+    }
+}
 /* Tablet Styles */
 @media (max-width: 1024px) {
     .about-content {
@@ -1400,5 +1484,53 @@ body {
     .cta-button {
         padding: 8px 16px;
         font-size: 0.9rem;
+    }
+}
+
+/* Fix responsive for the hamburger menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on your navbar height */
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
     }
 }
